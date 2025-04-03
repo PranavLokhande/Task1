@@ -989,8 +989,8 @@
 
 <body>
     <div class="navbar">
-        <span class="animated-text">Smart Control Panel</span>
-        <button class="toggle-mode" onclick="toggleDarkMode()">🌙</button>
+        <h1 class="h1" style="text-align: center; color: rgb(237, 135, 9);">Smart Control Panel</h1>
+        <button style="font-size:30px ;" class="toggle-mode">🎙️</button>
     </div>
     <div class="container">
         <div class="section">
@@ -998,7 +998,7 @@
 
                 <!-- yeh mere first toggle button honge -->
                 <div class="button1-card">
-                    <h1 style="padding:20px 20px">Master Switch</h1><br><br>
+                    <h1 style="padding:20px 20px; color:black;">Master Switch</h1><br><br>
                     <div class="toggle-cont" style="margin-left:70px;">
                         <input class="toggle-input" id="toggle" name="toggle" type="checkbox" />
                         <label class="toggle-label" for="toggle">
@@ -1105,7 +1105,7 @@
 
                 <!-- button2 card start -->
                 <div class="button2-card">
-                    <h1 style="padding: 20px 20px;">Auto Motion</h1>
+                    <h1 style="padding: 20px 20px; color:black">Auto Motion</h1>
                     <label class="switch">
                         <input type="checkbox">
                         <span class="slider"></span>
@@ -1115,7 +1115,7 @@
 
                 <!-- button 3 card start -->
                 <div class="button3-card">
-                    <h1 style="padding: 20px 20px;">Auto Brightness</h1>
+                    <h1 style="padding: 20px 20px; color:black">Auto Brightness</h1>
                     <label class="switch">
                         <input type="checkbox">
                         <span class="slider"></span>
@@ -1142,18 +1142,18 @@
                 </div>
                 <!-- <h1 style="color:white">Intensity</h1> -->
             </div>
-            <h1 style="margin-top: 80px;">Intensity</h1>
+            <h1 style="margin-top: 80px; color:black">Intensity</h1>
 
             <div class="box2">
                 <div class="calendar">
-                    <h1 style=" margin-top: 80px; ">Calender</h1>
+                    <h1 style=" margin-top: 80px; color:black ">Calender</h1>
                     <img src="https://cdn-icons-png.flaticon.com/512/1869/1869397.png" style="margin-left: 20px;" class="icon" id="open-modal" alt="Calendar Icon">
 
                 </div>
 
                 <div class="modal" id="schedule-modal">
                     <span class="close" id="close-modal">&times;</span>
-                    <h3>Set Schedule</h3>
+                    <h3 style="color:black">Set Schedule</h3>
                     <input type="datetime-local" id="schedule-time">
                     <button id="set-schedule">Set Schedule</button>
                     <p id="scheduled-time"></p>
@@ -1198,13 +1198,13 @@
 
             <!-- Humidity start  -->
 
-            <div class="box4" style="margin-left: 70px; margin-top: 70px; margin-bottom: 50px;">
+            <div class="box4" style=" margin-top: 70px; margin-bottom: 50px;">
 
                 <div class="card2">
                     <div class="icon-container2">
                         <i class="fas fa-droplet"></i>
                     </div>
-                    <h2 class="title">Humidity</h2>
+                    <h2 class="title" style="color:black">Humidity</h2>
                     <div class="humidity">49%</div>
                 </div>
 
@@ -1212,14 +1212,11 @@
 
             <!-- lux waal code -->
             <div class="box5" style="margin-top: 30px;">
-                <div class="progress-container ">
-                    <div class="slider-container2" id="slider-container">
-                        <div class="slider2" id="slider"></div>
-                        <div class="indicator2" id="indicator">
-                            <div class="circle2">⚡</div>
-                            <span>LUX</span>
-                            <span id="percentage">50%</span>
-                        </div>
+                <h1 class="lux" style="  margin-right: 220px;     margin-bottom: 20px; color:black">LUX</h1>
+                <div class="progress-container">
+                    <div class="progress-circle">
+                        <div class="inner-circle"></div>
+                        <span class="progress-text">24 LUX</span>
                     </div>
                 </div>
             </div>
@@ -1244,27 +1241,69 @@
 
         // lux wala js
 
-        const sliderContainer = document.getElementById('slider-container');
-        const sliderr = document.getElementById('slider');
-        const percentageText = document.getElementById('percentage');
+        const progressText = document.querySelector(".progress-text");
+        const progressCircle = document.querySelector(".progress-circle");
+        const container = document.querySelector(".progress-container");
 
-        sliderContainer.addEventListener('mousedown', (e) => {
-            function moveSlider(event) {
-                let rect = sliderContainer.getBoundingClientRect();
-                let offsetX = event.clientX - rect.left;
-                let percentage = Math.min(Math.max(offsetX / rect.width * 100, 0), 100);
-                sliderr.style.width = percentage + '%';
-                percentageText.textContent = Math.round(percentage) + '%';
-            }
+        let centerX = container.offsetWidth / 2;
+        let centerY = container.offsetHeight / 2;
+        let dragging = false;
 
-            function stopDragging() {
-                document.removeEventListener('mousemove', moveSlider);
-                document.removeEventListener('mouseup', stopDragging);
-            }
+        function updateProgress(e) {
+            let rect = container.getBoundingClientRect();
+            let x = e.clientX - rect.left - centerX;
+            let y = e.clientY - rect.top - centerY;
+            let angle = Math.atan2(y, x) * (180 / Math.PI) + 90;
+            if (angle < 0) angle += 360;
 
-            moveSlider(e);
-            document.addEventListener('mousemove', moveSlider);
-            document.addEventListener('mouseup', stopDragging);
+            // Flip the progress so it starts from the bottom
+            let percent = Math.round(100 - (angle / 3.6));
+            if (percent < 1) percent = 1;
+            if (percent > 100) percent = 100;
+
+            progressText.innerText = percent;
+            progressCircle.style.background = `radial-gradient(circle, #131722 55%, transparent 56%), 
+                conic-gradient(#A0B4FF ${angle}deg, #1a1c25 ${angle}deg)`;
+
+            // Add a subtle glow effect when dragging
+            progressCircle.style.boxShadow = `0 0 ${percent / 5}px rgba(160, 180, 255, 0.6), 
+                                              0 0 ${percent / 2}px rgba(160, 180, 255, 0.4)`;
+        }
+
+        container.addEventListener("mousedown", () => {
+            dragging = true;
+            progressCircle.style.transform = "scale(1.1)";
+        });
+
+        document.addEventListener("mousemove", (e) => {
+            if (dragging) updateProgress(e);
+        });
+
+        document.addEventListener("mouseup", () => {
+            dragging = false;
+            progressCircle.style.transform = "scale(1)";
+        });
+
+        // Initialize at 24%
+        updateProgress({
+            clientX: container.getBoundingClientRect().left + centerX,
+            clientY: container.getBoundingClientRect().top + centerY + centerX * 0.85
+        });
+
+        // mike 
+        document.querySelector(".toggle-mode").addEventListener("click", () => {
+            const recognition = new(window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = "en-US";
+            recognition.start();
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById("output").textContent = "You said: " + transcript;
+            };
+
+            recognition.onerror = (event) => {
+                console.error("Error occurred in recognition:", event.error);
+            };
         });
 
 
