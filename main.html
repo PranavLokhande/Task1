@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Control Panel</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+    <!-- <style> -->
+
+    <!-- margin: 0; -->
+    <!-- padding: 0; -->
+    <!-- box-sizing: border-box; -->
+    <!-- font-family: Arial, sans-serif; -->
+    <!-- } -->
+    <!--  -->
+    <!-- body { -->
+    <!-- background: linear-gradient(to bottom, #020024, #090979, #090979); -->
+    <!-- background-attachment: fixed; -->
+    <!-- color: white; -->
+    <!-- color: white; -->
+    <!-- display: flex; -->
+    <!-- flex-direction: column; -->
+    <!-- align-items: center; -->
+    <!-- transition: background 0.3s, color 0.3s; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .navbar { -->
+    <!-- width: 100%; -->
+    <!-- padding: 15px; -->
+    <!-- text-align: center; -->
+    <!-- font-size: 24px; -->
+    <!-- font-weight: bold; -->
+    <!-- background: transparent; -->
+    <!-- color: white; -->
+    <!-- border-radius: 15px; -->
+    <!-- display: flex; -->
+    <!-- justify-content: space-between; -->
+    <!-- align-items: center; -->
+    <!-- } -->
+    <!-- /* From Uiverse.io by MuhammadHasann */ -->
+    <!-- /* first toggle button code */ -->
+    <!--  -->
+    <!-- .toggle-cont { -->
+    <!-- --primary: #54a8fc; -->
+    <!-- --light: #d9d9d9; -->
+    <!-- --dark: #121212; -->
+    <!-- --gray: #414344; -->
+    <!-- position: relative; -->
+    <!-- z-index: 10; -->
+    <!-- width: fit-content; -->
+    <!-- height: 50px; -->
+    <!-- border-radius: 9999px; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .toggle-cont .toggle-input { -->
+    <!-- display: none; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .toggle-cont .toggle-label { -->
+    <!-- --gap: 5px; -->
+    <!-- --width: 50px; -->
+    <!-- cursor: pointer; -->
+    <!-- position: relative; -->
+    <!-- display: inline-block; -->
+    <!-- padding: 0.5rem; -->
+    <!-- width: calc((var(--width) + var(--gap)) * 2); -->
+    <!-- height: 100%; -->
+    <!-- background-color: var(--dark); -->
+    <!-- border: 1px solid #777777; -->
+    <!-- border-bottom: 0; -->
+    <!-- border-radius: 9999px; -->
+    <!-- box-sizing: content-box; -->
+    <!-- transition: all 0.3s ease-in-out; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .toggle-label::before { -->
+    <!-- content: ""; -->
+    <!-- position: absolute; -->
+    <!-- z-index: -10; -->
+    <!-- top: 50%; -->
+    <!-- left: 50%; -->
+    <!-- transform: translate(-50%, -50%); -->
+    <!-- width: calc(100% + 1.5rem); -->
+    <!-- height: calc(100% + 1.5rem); -->
+    <!-- background-color: var(--gray); -->
+    <!-- border: 1px solid #777777; -->
+    <!-- border-bottom: 0; -->
+    <!-- border-radius: 9999px; -->
+    <!-- transition: all 0.3s ease-in-out; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .toggle-label::after { -->
+    <!-- content: ""; -->
+    <!-- position: absolute; -->
+    <!-- z-index: -10; -->
+    <!-- top: 50%; -->
+    <!-- left: 50%; -->
+    <!-- transform: translate(-50%, -50%); -->
+    <!-- width: 100%; -->
+    <!-- height: 100%; -->
+    <!-- background-image: radial-gradient( circle at 50% -100%, rgb(58, 155, 252) 0%, rgba(12, 12, 12, 1) 80%); -->
+    <!-- border-radius: 9999px; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .toggle-cont .toggle-label .cont-icon { -->
+    <!-- position: relative; -->
+    <!-- display: flex; -->
+    <!-- justify-content: center; -->
+    <!-- align-items: center; -->
+    <!-- position: relative; -->
+    <!-- width: var(--width); -->
+    <!-- height: 50px; -->
+    <!-- background-image: radial-gradient( circle at 50% 0%, #666666 0%, var(--gray) 100%); -->
+    <!-- border: 1px solid #aaaaaa; -->
+    <!-- border-bottom: 0; -->
+    <!-- border-radius: 9999px; -->
+    <!-- box-shadow: inset 0 -0.15rem 0.15rem var(--primary), inset 0 0 0.5rem 0.75rem var(--second); -->
+    <!-- transition: transform 0.3s ease-in-out; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .cont-icon { -->
+    <!-- overflow: clip; -->
+    <!-- position: relative; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .cont-icon .sparkle { -->
+    <!-- position: absolute; -->
+    <!-- top: 50%; -->
+    <!-- left: 50%; -->
+    <!-- display: block; -->
+    <!-- width: calc(var(--width) * 1px); -->
+    <!-- aspect-ratio: 1; -->
+    <!-- background-color: var(--light); -->
+    <!-- border-radius: 50%; -->
+    <!-- transform-origin: 50% 50%; -->
+    <!-- rotate: calc(1deg * var(--deg)); -->
+    <!-- transform: translate(-50%, -50%); -->
+    <!-- animation: sparkle calc(100s / var(--duration)) linear calc(0s / var(--duration)) infinite; -->
+    <!-- } -->
+    <!--  -->
+    <!-- @keyframes sparkle { -->
+    <!-- to { -->
+    <!-- width: calc(var(--width) * 0.5px); -->
+    <!-- transform: translate(2000%, -50%); -->
+    <!-- } -->
+    <!-- } -->
+    <!--  -->
+    <!-- .cont-icon .icon { -->
+    <!-- width: 1.1rem; -->
+    <!-- fill: var(--light); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .toggle-cont:has(.toggle-input:checked) { -->
+    <!-- --checked: true; -->
+    <!-- } -->
+    <!--  -->
+    <!-- @container style(--checked: true) { -->
+    <!-- .toggle-cont .toggle-label { -->
+    <!-- background-color: #41434400; -->
+    <!-- border: 1px solid #3d6970; -->
+    <!-- border-bottom: 0; -->
+    <!-- } -->
+    <!-- .toggle-cont .toggle-label::before { -->
+    <!-- box-shadow: 0 1rem 2.5rem -2rem #0080ff; -->
+    <!-- } -->
+    <!-- .toggle-cont .toggle-label .cont-icon { -->
+    <!-- overflow: visible; -->
+    <!-- background-image: radial-gradient( circle at 50% 0%, #045ab1 0%, var(--primary) 100%); -->
+    <!-- border: 1px solid var(--primary); -->
+    <!-- border-bottom: 0; -->
+    <!-- transform: translateX(calc((var(--gap) * 2) + 100%)) rotate(-225deg); -->
+    <!-- } -->
+    <!-- .toggle-cont .toggle-label .cont-icon .sparkle { -->
+    <!-- z-index: -10; -->
+    <!-- width: calc(var(--width) * 1.5px); -->
+    <!-- background-color: #acacac; -->
+    <!-- animation: sparkle calc(100s / var(--duration)) linear calc(10s / var(--duration)) infinite; -->
+    <!-- } -->
+    <!-- @keyframes sparkle { -->
+    <!-- to { -->
+    <!-- width: calc(var(--width) * 1px); -->
+    <!-- transform: translate(5000%, -50%); -->
+    <!-- } -->
+    <!-- } -->
+    <!-- } -->
+    <!-- /* button card 2,3 css */ -->
+    <!--  -->
+    <!-- .switch { -->
+    <!-- font-size: 17px; -->
+    <!-- position: relative; -->
+    <!-- display: inline-block; -->
+    <!-- width: 3.5em; -->
+    <!-- height: 2em; -->
+    <!-- } -->
+    <!-- /* Hide default HTML checkbox */ -->
+    <!--  -->
+    <!-- .switch input { -->
+    <!-- opacity: 0; -->
+    <!-- width: 0; -->
+    <!-- height: 0; -->
+    <!-- } -->
+    <!-- /* The slider */ -->
+    <!--  -->
+    <!-- .slider { -->
+    <!-- position: absolute; -->
+    <!-- cursor: pointer; -->
+    <!-- inset: 0; -->
+    <!-- background: #d4acfb; -->
+    <!-- border-radius: 50px; -->
+    <!-- transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .slider:before { -->
+    <!-- position: absolute; -->
+    <!-- content: ""; -->
+    <!-- height: 1.4em; -->
+    <!-- width: 1.4em; -->
+    <!-- left: 0.3em; -->
+    <!-- bottom: 0.3em; -->
+    <!-- background-color: white; -->
+    <!-- border-radius: 50px; -->
+    <!-- box-shadow: 0 0px 20px rgba(0, 0, 0, 0.4); -->
+    <!-- transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .switch input:checked+.slider { -->
+    <!-- background: #b84fce; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .switch input:focus+.slider { -->
+    <!-- box-shadow: 0 0 1px #b84fce; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .switch input:checked+.slider:before { -->
+    <!-- transform: translateX(1.6em); -->
+    <!-- width: 2em; -->
+    <!-- height: 2em; -->
+    <!-- bottom: 0; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .button1-card { -->
+    <!-- width: 300px; -->
+    <!-- height: 300px; -->
+    <!-- margin-bottom: 10px; -->
+    <!-- border-radius: 15px; -->
+    <!-- /* border: 1px solid rgba(255, 255, 255, 0.3); */ -->
+    <!-- background: rgba(33, 17, 17, 0.1); -->
+    <!-- /* Transparent dark effect */ -->
+    <!-- backdrop-filter: blur(10px); -->
+    <!-- /* Blur effect for glassmorphism */ -->
+    <!-- /* Light frosted glass effect */ -->
+    <!-- backdrop-filter: blur(12px); -->
+    <!-- -webkit-backdrop-filter: blur(12px); -->
+    <!-- box-shadow: 10px 10px 12px 10px rgba(0, 0, 0, 0.2); -->
+    <!-- transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; -->
+    <!-- /* display: flex; */ -->
+    <!-- justify-content: center; -->
+    <!-- align-items: center; -->
+    <!-- color: white; -->
+    <!-- font-size: 18px; -->
+    <!-- margin-bottom: 20px; -->
+    <!-- font-weight: bold; -->
+    <!-- text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .button1-card:hover { -->
+    <!-- transform: scale(1.07); -->
+    <!-- box-shadow: 0 8px 25px rgba(5px, 5px, 0, 0.3); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .button2-card { -->
+    <!-- width: 300px; -->
+    <!-- height: 200px; -->
+    <!-- margin-bottom: 10px; -->
+    <!-- border-radius: 15px; -->
+    <!-- /* border: 1px solid rgba(255, 255, 255, 0.3); */ -->
+    <!-- background: rgba(33, 17, 17, 0.1); -->
+    <!-- /* Transparent dark effect */ -->
+    <!-- backdrop-filter: blur(10px); -->
+    <!-- /* Blur effect for glassmorphism */ -->
+    <!-- /* Light frosted glass effect */ -->
+    <!-- backdrop-filter: blur(12px); -->
+    <!-- -webkit-backdrop-filter: blur(12px); -->
+    <!-- box-shadow: 10px 10px 12px 10px rgba(0, 0, 0, 0.2); -->
+    <!-- transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; -->
+    <!-- /* display: flex; */ -->
+    <!-- justify-content: center; -->
+    <!-- align-items: center; -->
+    <!-- color: white; -->
+    <!-- font-size: 18px; -->
+    <!-- margin-bottom: 20px; -->
+    <!-- font-weight: bold; -->
+    <!-- text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .button2-card:hover { -->
+    <!-- transform: scale(1.07); -->
+    <!-- box-shadow: 10 8px 25px rgba(5px, 5px, 0, 0.3); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .button3-card { -->
+    <!-- width: 300px; -->
+    <!-- height: 200px; -->
+    <!-- margin-bottom: 10px; -->
+    <!-- border-radius: 15px; -->
+    <!-- /* border: 1px solid rgba(255, 255, 255, 0.3); */ -->
+    <!-- background: rgba(33, 17, 17, 0.1); -->
+    <!-- /* Transparent dark effect */ -->
+    <!-- backdrop-filter: blur(10px); -->
+    <!-- /* Blur effect for glassmorphism */ -->
+    <!-- /* Light frosted glass effect */ -->
+    <!-- backdrop-filter: blur(12px); -->
+    <!-- -webkit-backdrop-filter: blur(12px); -->
+    <!-- box-shadow: 10px 10px 12px 10px rgba(0, 0, 0, 0.2); -->
+    <!-- transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; -->
+    <!-- /* display: flex; */ -->
+    <!-- justify-content: center; -->
+    <!-- align-items: center; -->
+    <!-- color: white; -->
+    <!-- font-size: 18px; -->
+    <!-- margin-bottom: 20px; -->
+    <!-- font-weight: bold; -->
+    <!-- text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .button3-card:hover { -->
+    <!-- transform: scale(1.07); -->
+    <!-- box-shadow: 0 8px 25px rgba(5px, 5px, 0, 0.3); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .toggle-mode { -->
+    <!-- background: none; -->
+    <!-- border: none; -->
+    <!-- color: white; -->
+    <!-- font-size: 18px; -->
+    <!-- cursor: pointer; -->
+    <!-- padding: 5px 15px; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .container { -->
+    <!-- display: flex; -->
+    <!-- flex-wrap: wrap; -->
+    <!-- width: 100%; -->
+    <!-- padding: 20px; -->
+    <!-- gap: 20px; -->
+    <!-- justify-content: center; -->
+    <!-- } -->
+    <!-- /* lamp code */ -->
+    <!--  -->
+    <!-- .circle { -->
+    <!-- width: 120px; -->
+    <!-- height: 120px; -->
+    <!-- border-radius: 50%; -->
+    <!-- background: rgba(255, 255, 255, 0.2); -->
+    <!-- display: flex; -->
+    <!-- align-items: center; -->
+    <!-- justify-content: center; -->
+    <!-- position: relative; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .circle .inner { -->
+    <!-- text-align: center; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .circle .inner span { -->
+    <!-- display: block; -->
+    <!-- } -->
+    <!-- /* Lamp styles (Box2) */ -->
+    <!--  -->
+    <!-- .lamp-container { -->
+    <!-- text-align: center; -->
+    <!-- position: relative; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .wire { -->
+    <!-- width: 3px; -->
+    <!-- height: 90px; -->
+    <!-- background: #8B4513; -->
+    <!-- position: absolute; -->
+    <!-- top: -1px; -->
+    <!-- left: 50%; -->
+    <!-- transform: translateX(-50%); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .lamp { -->
+    <!-- width: 140px; -->
+    <!-- height: 100px; -->
+    <!-- background: linear-gradient(to bottom, #1c1b1c, #4e4b4d); -->
+    <!-- position: relative; -->
+    <!-- margin: auto; -->
+    <!-- top: 80px; -->
+    <!-- border-radius: 60px 60px 20px 20px; -->
+    <!-- box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.5); -->
+    <!-- border: 0.5px solid #8B4513; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .light { -->
+    <!-- width: 260px; -->
+    <!-- height: 150px; -->
+    <!-- /* Adjusted gradient for a bright, warm glow */ -->
+    <!-- background: radial-gradient(ellipse at center, rgba(255, 251, 38, 0.85) 30%, rgba(255, 230, 240, 0) 80%); -->
+    <!-- position: absolute; -->
+    <!-- top: 180px; -->
+    <!-- left: 50%; -->
+    <!-- transform: translateX(-50%); -->
+    <!-- opacity: 0.5; -->
+    <!-- transition: opacity 0.3s ease; -->
+    <!-- border-radius: 50% 50% 80% 80% / 50% 50% 100% 100%; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .slider-container { -->
+    <!-- margin-top: 120px; -->
+    <!-- padding: 10px 20px; -->
+    <!-- background: #6a83f8; -->
+    <!-- border-radius: 20px; -->
+    <!-- position: absolute; -->
+    <!-- top: 260px; -->
+    <!-- left: 50%; -->
+    <!-- transform: translateX(-50%); -->
+    <!-- display: flex; -->
+    <!-- align-items: center; -->
+    <!-- gap: 10px; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .slider-container .sun-icon { -->
+    <!-- font-size: 24px; -->
+    <!-- color: #FFD700; -->
+    <!-- } -->
+    <!--  -->
+    <!-- input[type="range"] { -->
+    <!-- width: 150px; -->
+    <!-- -webkit-appearance: none; -->
+    <!-- appearance: none; -->
+    <!-- height: 6px; -->
+    <!-- background: #fff; -->
+    <!-- border-radius: 5px; -->
+    <!-- outline: none; -->
+    <!-- opacity: 0.9; -->
+    <!-- cursor: pointer; -->
+    <!-- } -->
+    <!--  -->
+    <!-- input[type="range"]::-webkit-slider-thumb { -->
+    <!-- -webkit-appearance: none; -->
+    <!-- appearance: none; -->
+    <!-- width: 20px; -->
+    <!-- height: 20px; -->
+    <!-- background: #ffffff; -->
+    <!-- border-radius: 50%; -->
+    <!-- cursor: grab; -->
+    <!-- box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.8); -->
+    <!-- } -->
+    <!--  -->
+    <!-- #brightness-value { -->
+    <!-- font-size: 16px; -->
+    <!-- color: #fff; -->
+    <!-- min-width: 40px; -->
+    <!-- text-align: center; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .section { -->
+    <!-- flex: 1; -->
+    <!-- min-width: 300px; -->
+    <!-- padding: 20px; -->
+    <!-- text-align: center; -->
+    <!-- border-radius: 10px; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .toggle-buttons button { -->
+    <!-- width: 100%; -->
+    <!-- height: 60px; -->
+    <!-- margin: 10px 0; -->
+    <!-- font-size: 18px; -->
+    <!-- border: none; -->
+    <!-- border-radius: 10px; -->
+    <!-- cursor: pointer; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .box { -->
+    <!-- width: 300px; -->
+    <!-- height: 300px; -->
+    <!-- background-color: #b1b0b5; -->
+    <!-- margin: 20px auto; -->
+    <!-- border-radius: 10px; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .box2 { -->
+    <!-- width: 100px; -->
+    <!-- height: 100px; -->
+    <!-- /* background-color: #b1b0b5; */ -->
+    <!-- border-radius: 10px; -->
+    <!-- margin: 20px auto; -->
+    <!-- } -->
+    <!-- /* calender css */ -->
+    <!--  -->
+    <!-- .calendar { -->
+    <!-- text-align: center; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .icon { -->
+    <!-- width: 100px; -->
+    <!-- height: 100px; -->
+    <!-- cursor: pointer; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .modal { -->
+    <!-- display: none; -->
+    <!-- position: absolute; -->
+    <!-- top: 82%; -->
+    <!-- left: 50%; -->
+    <!-- transform: translate(-50%, 0%) scale(0.8); -->
+    <!-- background: white; -->
+    <!-- padding: 20px; -->
+    <!-- box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); -->
+    <!-- border-radius: 10px; -->
+    <!-- transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; -->
+    <!-- opacity: 0; -->
+    <!-- width: 50%; -->
+    <!-- max-width: 200px; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .modal.active { -->
+    <!-- display: block; -->
+    <!-- transform: translate(-50%, 10px) scale(1); -->
+    <!-- opacity: 1; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .close { -->
+    <!-- cursor: pointer; -->
+    <!-- color: red; -->
+    <!-- font-size: 20px; -->
+    <!-- float: right; -->
+    <!-- } -->
+    <!-- /* .progress-container { */ -->
+    <!-- /* width: 80%; */ -->
+    <!-- /* margin: 10px auto; */ -->
+    <!-- /* background: #333; */ -->
+    <!-- /* border-radius: 10px; */ -->
+    <!-- /* overflow: hidden; */ -->
+    <!-- /* } */ -->
+    <!--  -->
+    <!-- .progress-bar { -->
+    <!-- width: 50%; -->
+    <!-- height: 20px; -->
+    <!-- background: green; -->
+    <!-- } -->
+    <!-- /* temperature card */ -->
+    <!-- /* From Uiverse.io by zanina-yassine */ -->
+    <!--  -->
+    <!-- .card { -->
+    <!-- width: 350px; -->
+    <!-- height: 235px; -->
+    <!-- position: relative; -->
+    <!-- padding: 25px; -->
+    <!-- background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #FFF7B1 0%, rgba(255, 255, 255, 0) 71.88%)/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */ -->
+    <!-- , #FFFFFF; -->
+    <!-- box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1); -->
+    <!-- border-radius: 23px; -->
+    <!-- transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1); -->
+    <!-- cursor: pointer; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .card:hover { -->
+    <!-- transform: scale(1.05); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .container1 { -->
+    <!-- width: 250px; -->
+    <!-- height: 250px; -->
+    <!-- position: absolute; -->
+    <!-- right: -35px; -->
+    <!-- top: -50px; -->
+    <!-- display: flex; -->
+    <!-- align-items: center; -->
+    <!-- justify-content: center; -->
+    <!-- transform: scale(0.7); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .cloud { -->
+    <!-- width: 250px; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .front { -->
+    <!-- padding-top: 45px; -->
+    <!-- margin-left: 25px; -->
+    <!-- display: inline; -->
+    <!-- position: absolute; -->
+    <!-- z-index: 11; -->
+    <!-- animation: clouds 8s infinite; -->
+    <!-- animation-timing-function: ease-in-out; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .back { -->
+    <!-- margin-top: -30px; -->
+    <!-- margin-left: 150px; -->
+    <!-- z-index: 12; -->
+    <!-- animation: clouds 12s infinite; -->
+    <!-- animation-timing-function: ease-in-out; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .right-front { -->
+    <!-- width: 45px; -->
+    <!-- height: 45px; -->
+    <!-- border-radius: 50% 50% 50% 0%; -->
+    <!-- background-color: #4c9beb; -->
+    <!-- display: inline-block; -->
+    <!-- margin-left: -25px; -->
+    <!-- z-index: 5; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .left-front { -->
+    <!-- width: 65px; -->
+    <!-- height: 65px; -->
+    <!-- border-radius: 50% 50% 0% 50%; -->
+    <!-- background-color: #4c9beb; -->
+    <!-- display: inline-block; -->
+    <!-- z-index: 5; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .right-back { -->
+    <!-- width: 50px; -->
+    <!-- height: 50px; -->
+    <!-- border-radius: 50% 50% 50% 0%; -->
+    <!-- background-color: #4c9beb; -->
+    <!-- display: inline-block; -->
+    <!-- margin-left: -20px; -->
+    <!-- z-index: 5; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .left-back { -->
+    <!-- width: 30px; -->
+    <!-- height: 30px; -->
+    <!-- border-radius: 50% 50% 0% 50%; -->
+    <!-- background-color: #4c9beb; -->
+    <!-- display: inline-block; -->
+    <!-- z-index: 5; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .sun { -->
+    <!-- width: 120px; -->
+    <!-- height: 120px; -->
+    <!-- background: -webkit-linear-gradient(to right, #fcbb04, #fffc00); -->
+    <!-- background: linear-gradient(to right, #fcbb04, #fffc00); -->
+    <!-- border-radius: 60px; -->
+    <!-- display: inline; -->
+    <!-- position: absolute; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .sunshine { -->
+    <!-- animation: sunshines 2s infinite; -->
+    <!-- } -->
+    <!--  -->
+    <!-- @keyframes sunshines { -->
+    <!-- 0% { -->
+    <!-- transform: scale(1); -->
+    <!-- opacity: 0.6; -->
+    <!-- } -->
+    <!-- 100% { -->
+    <!-- transform: scale(1.4); -->
+    <!-- opacity: 0; -->
+    <!-- } -->
+    <!-- } -->
+    <!--  -->
+    <!-- @keyframes clouds { -->
+    <!-- 0% { -->
+    <!-- transform: translateX(15px); -->
+    <!-- } -->
+    <!-- 50% { -->
+    <!-- transform: translateX(0px); -->
+    <!-- } -->
+    <!-- 100% { -->
+    <!-- transform: translateX(15px); -->
+    <!-- } -->
+    <!-- } -->
+    <!--  -->
+    <!-- .card-header { -->
+    <!-- display: flex; -->
+    <!-- flex-direction: column; -->
+    <!-- gap: 10px; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .card-header span:first-child { -->
+    <!-- word-break: break-all; -->
+    <!-- font-weight: 800; -->
+    <!-- font-size: 15px; -->
+    <!-- line-height: 135%; -->
+    <!-- color: rgba(87, 77, 51, 0.66); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .card-header span:last-child { -->
+    <!-- font-weight: 700; -->
+    <!-- font-size: 15px; -->
+    <!-- line-height: 135%; -->
+    <!-- color: rgba(87, 77, 51, 0.33); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .temp { -->
+    <!-- position: absolute; -->
+    <!-- left: 25px; -->
+    <!-- bottom: 12px; -->
+    <!-- font-weight: 700; -->
+    <!-- font-size: 64px; -->
+    <!-- line-height: 77px; -->
+    <!-- color: rgba(87, 77, 51, 1); -->
+    <!-- } -->
+    <!--  -->
+    <!-- .temp-scale { -->
+    <!-- width: 80px; -->
+    <!-- height: 36px; -->
+    <!-- position: absolute; -->
+    <!-- right: 25px; -->
+    <!-- bottom: 25px; -->
+    <!-- display: flex; -->
+    <!-- align-items: center; -->
+    <!-- justify-content: center; -->
+    <!-- background: rgba(0, 0, 0, 0.06); -->
+    <!-- border-radius: 9px; -->
+    <!-- color: black; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .temp-scale span { -->
+    <!-- font-weight: 700; -->
+    <!-- font-size: 13px; -->
+    <!-- line-height: 134.49%; -->
+    <!-- color: rgba(23, 22, 22, 0.66); -->
+    <!-- font-weight: 700; -->
+    <!-- } -->
+    <!-- /*  end */ -->
+    <!-- /* himidty card css */ -->
+    <!-- /* From Uiverse.io by sahilxkhadka */ -->
+    <!--  -->
+    <!-- .card2 { -->
+    <!-- width: 150px; -->
+    <!-- height: 200px; -->
+    <!-- background: #eef1f6; -->
+    <!-- border-radius: 20px; -->
+    <!-- box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px white; -->
+    <!-- display: flex; -->
+    <!-- flex-direction: column; -->
+    <!-- align-items: center; -->
+    <!-- justify-content: center; -->
+    <!-- text-align: center; -->
+    <!-- font-family: Arial, sans-serif; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .icon-container2 { -->
+    <!-- width: 60px; -->
+    <!-- height: 60px; -->
+    <!-- background: #ffccd5; -->
+    <!-- border-radius: 50%; -->
+    <!-- display: flex; -->
+    <!-- align-items: center; -->
+    <!-- justify-content: center; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .icon-container2 i { -->
+    <!-- font-size: 30px; -->
+    <!-- color: #d63384; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .title { -->
+    <!-- margin-top: 10px; -->
+    <!-- font-size: 16px; -->
+    <!-- color: #4a4a4a; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .humidity { -->
+    <!-- font-size: 20px; -->
+    <!-- font-weight: bold; -->
+    <!-- color: #4a4a4a; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .data-box { -->
+    <!-- /* width: 200px; */ -->
+    <!-- /* height: 200px; */ -->
+    <!-- /* background: #555; */ -->
+    <!-- /* margin: 10px auto; */ -->
+    <!-- /* border-radius: 10px; */ -->
+    <!-- /* display: flex; */ -->
+    <!-- /* align-items: center; */ -->
+    <!-- /* justify-content: center; */ -->
+    <!-- /* font-size: 20px; */ -->
+    <!-- } -->
+    <!-- /* Lux wala css */ -->
+    <!--  -->
+    <!-- .slider-container2 { -->
+    <!-- position: relative; -->
+    <!-- width: 300px; -->
+    <!-- height: 60px; -->
+    <!-- background: #c7ceff; -->
+    <!-- border-radius: 30px; -->
+    <!-- display: flex; -->
+    <!-- align-items: center; -->
+    <!-- padding: 5px; -->
+    <!-- box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2); -->
+    <!-- cursor: pointer; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .slider2 { -->
+    <!-- position: absolute; -->
+    <!-- height: 100%; -->
+    <!-- width: 50%; -->
+    <!-- background: #6a83f8; -->
+    <!-- border-radius: 30px; -->
+    <!-- transition: width 0.2s ease-out; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .indicator2 { -->
+    <!-- position: absolute; -->
+    <!-- left: 15px; -->
+    <!-- z-index: 10; -->
+    <!-- display: flex; -->
+    <!-- align-items: center; -->
+    <!-- gap: 8px; -->
+    <!-- font-family: Arial, sans-serif; -->
+    <!-- color: white; -->
+    <!-- font-weight: bold; -->
+    <!-- font-size: 18px; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .circle2 { -->
+    <!-- width: 25px; -->
+    <!-- height: 25px; -->
+    <!-- background: white; -->
+    <!-- border-radius: 50%; -->
+    <!-- display: flex; -->
+    <!-- justify-content: center; -->
+    <!-- align-items: center; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .head { -->
+    <!-- font-size: 50px; -->
+    <!-- text-align: center; -->
+    <!-- justify-content: center; -->
+    <!-- display: flex; -->
+    <!-- align-items: center; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .animated-text { -->
+    <!-- font-size: 50px; -->
+    <!-- font-weight: bold; -->
+    <!-- background: linear-gradient(to right, #00feba, #5bff5b); -->
+    <!-- font-weight: bold; -->
+    <!-- -webkit-background-clip: text; -->
+    <!-- -webkit-text-fill-color: transparent; -->
+    <!-- display: inline-block; -->
+    <!-- animation: bounce 1.5s infinite alternate; -->
+    <!-- } -->
+    <!--  -->
+    <!-- @keyframes bounce { -->
+    <!-- 0% { -->
+    <!-- transform: translateY(0); -->
+    <!-- } -->
+    <!-- 100% { -->
+    <!-- transform: translateY(-5px); -->
+    <!-- } -->
+    <!-- } -->
+    <!--  -->
+    <!-- .light-mode { -->
+    <!-- background: linear-gradient(to bottom right, #e3e2dd, #df6be5); -->
+    <!-- background-attachment: fixed; -->
+    <!-- color: black; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .light-mode .animated-text { -->
+    <!-- background: linear-gradient(to right, #007bff, #1f54e6); -->
+    <!-- font-weight: bold; -->
+    <!-- /* Blue Gradient */ -->
+    <!-- -webkit-background-clip: text; -->
+    <!-- -webkit-text-fill-color: transparent; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .light-mode .navbar { -->
+    <!-- background: transparent; -->
+    <!-- color: rgb(26, 18, 18) !important; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .light-mode .toggle-mode { -->
+    <!-- /* color: red; */ -->
+    <!-- /* background-color: red; */ -->
+    <!-- /* border-radius: 50%; */ -->
+    <!-- } -->
+    <!--  -->
+    <!-- .light-mode .box, -->
+    <!-- .light-mode .data-box { -->
+    <!-- color: black; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .light-mode .button1-card { -->
+    <!-- /* border: 1px solid black; */ -->
+    <!-- background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #FFF7B1 0%, rgba(255, 255, 255, 0) 71.88%)/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */ -->
+    <!-- , #FFFFFF; -->
+    <!-- ; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .light-mode .button2-card { -->
+    <!-- /* border: 1px solid black; */ -->
+    <!-- background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #FFF7B1 0%, rgba(255, 255, 255, 0) 71.88%)/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */ -->
+    <!-- , #FFFFFF; -->
+    <!-- ; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .light-mode .button3-card { -->
+    <!-- /* border: 1px solid black; */ -->
+    <!-- background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #FFF7B1 0%, rgba(255, 255, 255, 0) 71.88%)/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */ -->
+    <!-- , #FFFFFF; -->
+    <!-- ; -->
+    <!-- } -->
+    <!--  -->
+    <!-- .light-mode h1 { -->
+    <!-- color: black -->
+    <!-- } -->
+    <!--  -->
+    <!-- @media (max-width: 768px) { -->
+    <!-- .navbar { -->
+    <!-- width: 100%; -->
+    <!-- padding: 15px; -->
+    <!-- text-align: center; -->
+    <!-- font-size: 24px; -->
+    <!-- font-weight: bold; -->
+    <!-- background: transparent; -->
+    <!-- border-radius: 15px; -->
+    <!-- display: flex; -->
+    <!-- justify-content: space-between; -->
+    <!-- align-items: center; -->
+    <!-- } -->
+    <!-- .animated-text { -->
+    <!-- font-size: 30px; -->
+    <!-- text-align: center; -->
+    <!-- } -->
+    <!-- .container { -->
+    <!-- flex-direction: column; -->
+    <!-- align-items: center; -->
+    <!-- min-height: 80vh; -->
+    <!-- width: 100%; -->
+    <!-- /* scroll-behavior: auto; */ -->
+    <!-- } -->
+    <!-- .toggle-buttons { -->
+    <!-- margin: auto auto; -->
+    <!-- /* background-color: red; */ -->
+    <!-- } -->
+    <!-- .calender { -->
+    <!-- width: 200px; -->
+    <!-- height: 200px; -->
+    <!-- margin-left: 0; -->
+    <!-- /* display: flex; */ -->
+    <!-- } -->
+    <!-- .data-box { -->
+    <!-- width: 200px; -->
+    <!-- height: 200px; -->
+    <!-- position: absolute; -->
+    <!-- left: 30px; -->
+    <!-- } -->
+    <!-- .modal { -->
+    <!-- display: none; -->
+    <!-- position: absolute; -->
+    <!-- top: 175%; -->
+    <!-- left: 50%; -->
+    <!-- transform: translate(-50%, 0%) scale(0.8); -->
+    <!-- background: white; -->
+    <!-- padding: 20px; -->
+    <!-- box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); -->
+    <!-- border-radius: 10px; -->
+    <!-- transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; -->
+    <!-- opacity: 0; -->
+    <!-- width: 50%; -->
+    <!-- max-width: 200px; -->
+    <!-- } -->
+    <!-- .card { -->
+    <!-- width: 300px; -->
+    <!-- height: 235px; -->
+    <!-- position: relative; -->
+    <!-- padding: 25px; -->
+    <!-- margin-bottom: 40px; -->
+    <!-- background: radial-gradient(178.94% 106.41% at 26.42% 106.41%, #FFF7B1 0%, rgba(255, 255, 255, 0) 71.88%)/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */ -->
+    <!-- , #FFFFFF; -->
+    <!-- box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1); -->
+    <!-- border-radius: 23px; -->
+    <!-- transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1); -->
+    <!-- cursor: pointer; -->
+    <!-- } -->
+    <!-- } -->
+    <!-- </style> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+</head>
+
+<body>
+    <div class="navbar">
+        <span class="animated-text">Smart Control Panel</span>
+        <button class="toggle-mode" onclick="toggleDarkMode()">🌙</button>
+    </div>
+    <div class="container">
+        <div class="section">
+            <div class="toggle-buttons">
+
+                <!-- yeh mere first toggle button honge -->
+                <div class="button1-card">
+                    <h1 style="padding:20px 20px">Master Switch</h1><br><br>
+                    <div class="toggle-cont" style="margin-left:70px;">
+                        <input class="toggle-input" id="toggle" name="toggle" type="checkbox" />
+                        <label class="toggle-label" for="toggle">
+      <div class="cont-icon">
+        <span
+          style="--width: 2; --deg: 25; --duration: 11"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 1; --deg: 100; --duration: 18"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 1; --deg: 280; --duration: 5"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 2; --deg: 200; --duration: 3"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 2; --deg: 30; --duration: 20"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 2; --deg: 300; --duration: 9"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 1; --deg: 250; --duration: 4"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 2; --deg: 210; --duration: 8"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 2; --deg: 100; --duration: 9"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 1; --deg: 15; --duration: 13"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 1; --deg: 75; --duration: 18"
+          class="sparkle"
+        ></span>
+        <span style="--width: 2; --deg: 65; --duration: 6" class="sparkle"></span>
+        <span style="--width: 2; --deg: 50; --duration: 7" class="sparkle"></span>
+        <span
+          style="--width: 1; --deg: 320; --duration: 5"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 1; --deg: 220; --duration: 5"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 1; --deg: 215; --duration: 2"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 2; --deg: 135; --duration: 9"
+          class="sparkle"
+        ></span>
+        <span style="--width: 2; --deg: 45; --duration: 4" class="sparkle"></span>
+        <span
+          style="--width: 1; --deg: 78; --duration: 16"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 1; --deg: 89; --duration: 19"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 2; --deg: 65; --duration: 14"
+          class="sparkle"
+        ></span>
+        <span style="--width: 2; --deg: 97; --duration: 1" class="sparkle"></span>
+        <span
+          style="--width: 1; --deg: 174; --duration: 10"
+          class="sparkle"
+        ></span>
+        <span
+          style="--width: 1; --deg: 236; --duration: 5"
+          class="sparkle"
+        ></span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 30 30"
+          class="icon"
+        >
+          <path
+            d="M0.96233 28.61C1.36043 29.0081 1.96007 29.1255 2.47555 28.8971L10.4256 25.3552C13.2236 24.11 16.4254 24.1425 19.2107 25.4401L27.4152 29.2747C27.476 29.3044 27.5418 29.3023 27.6047 29.32C27.6563 29.3348 27.7079 29.3497 27.761 29.3574C27.843 29.3687 27.9194 29.3758 28 29.3688C28.1273 29.3617 28.2531 29.3405 28.3726 29.2945C28.4447 29.262 28.5162 29.2287 28.5749 29.1842C28.6399 29.1446 28.6993 29.0994 28.7509 29.0477L28.9008 28.8582C28.9468 28.7995 28.9793 28.7274 29.0112 28.656C29.0599 28.5322 29.0811 28.4036 29.0882 28.2734C29.0939 28.1957 29.0868 28.1207 29.0769 28.0415C29.0705 27.9955 29.0585 27.9524 29.0472 27.9072C29.0295 27.8343 29.0302 27.7601 28.9984 27.6901L25.1638 19.4855C23.8592 16.7073 23.8273 13.5048 25.0726 10.7068L28.6145 2.75679C28.8429 2.24131 28.7318 1.63531 28.3337 1.2372C27.9165 0.820011 27.271 0.721743 26.7491 0.9961L19.8357 4.59596C16.8418 6.15442 13.2879 6.18696 10.2615 4.70062L1.80308 0.520214C1.7055 0.474959 1.60722 0.441742 1.50964 0.421943C1.44459 0.409215 1.37882 0.395769 1.3074 0.402133C1.14406 0.395769 0.981436 0.428275 0.818095 0.499692C0.77284 0.519491 0.719805 0.545671 0.67455 0.578198C0.596061 0.617088 0.524653 0.675786 0.4596 0.74084C0.394546 0.805894 0.335843 0.877306 0.296245 0.956502C0.263718 1.00176 0.237561 1.05477 0.217762 1.10003C0.152708 1.24286 0.126545 1.40058 0.120181 1.54978C0.120181 1.61483 0.126527 1.6735 0.132891 1.73219C0.15269 1.85664 0.178881 1.97332 0.237571 2.08434L4.41798 10.5427C5.91139 13.5621 5.8725 17.1238 4.3204 20.1099L0.720514 27.0233C0.440499 27.5536 0.545137 28.1928 0.96233 28.61Z"
+          ></path>
+        </svg>
+      </div>
+    </label>
+                    </div>
+                </div>
+                <!-- button 1 card end -->
+
+                <!-- button2 card start -->
+                <div class="button2-card">
+                    <h1 style="padding: 20px 20px;">Auto Motion</h1>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                      </label>
+                </div>
+                <!-- button 2 card end -->
+
+                <!-- button 3 card start -->
+                <div class="button3-card">
+                    <h1 style="padding: 20px 20px;">Auto Brightness</h1>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                      </label>
+                </div>
+                <!-- button 3 card end -->
+            </div>
+        </div>
+        <div class="section">
+            <div class="box">
+                <!-- lamp code -->
+                <div class="lamp-container">
+                    <div class="wire"></div>
+                    <div class="lamp"></div>
+                    <div class="light" id="light"></div>
+                    <!--    <h1 style="color:white">Intensity</h1> -->
+                    <div class="slider-container" style="margin-top:60px">
+                        <span class="sun-icon">&#9728;</span>
+                        <input type="range" min="0" max="1" step="0.01" value="0.5" id="brightness-slider">
+                        <span id="brightness-value">50%</span>
+
+                    </div>
+                    <!-- <h1 style="color:white">Intensity</h1> -->
+                </div>
+                <!-- <h1 style="color:white">Intensity</h1> -->
+            </div>
+            <h1 style="margin-top: 80px;">Intensity</h1>
+
+            <div class="box2">
+                <div class="calendar">
+                    <h1 style=" margin-top: 80px; ">Calender</h1>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1869/1869397.png" style="margin-left: 20px;" class="icon" id="open-modal" alt="Calendar Icon">
+
+                </div>
+
+                <div class="modal" id="schedule-modal">
+                    <span class="close" id="close-modal">&times;</span>
+                    <h3>Set Schedule</h3>
+                    <input type="datetime-local" id="schedule-time">
+                    <button id="set-schedule">Set Schedule</button>
+                    <p id="scheduled-time"></p>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <svg xmlns="http://www.w3.org/2000/svg " width="24 " viewBox="0 0 24 24 " height="24 " fill="none " class="svg-icon "><g stroke-width="2 " stroke-linecap="round " stroke="#fff "><rect y="5 " x="4 " width="16 " rx="2 " height="16
+                    "></rect><path d="m8 3v4 "></path><path d="m16 3v4 "></path><path d="m4 11h16 "></path></g></svg> -->
+
+        <div class="section ">
+            <!-- temperture card -->
+            <div class="box3 ">
+                <div class="card">
+                    <div class="container1">
+                        <div class="cloud front">
+                            <span class="left-front"></span>
+                            <span class="right-front"></span>
+                        </div>
+                        <span class="sun sunshine"></span>
+                        <span class="sun"></span>
+                        <div class="cloud back">
+                            <span class="left-back"></span>
+                            <span class="right-back"></span>
+                        </div>
+                    </div>
+
+                    <div class="card-header">
+                        <span>Nagpur, India</span>
+                        <span>April 3</span>
+                    </div>
+
+                    <span class="temp">39°</span>
+
+                    <div class="temp-scale">
+                        <span>Temperature</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Humidity start  -->
+
+            <div class="box4" style="margin-left: 70px; margin-top: 70px; margin-bottom: 50px;">
+
+                <div class="card2">
+                    <div class="icon-container2">
+                        <i class="fas fa-droplet"></i>
+                    </div>
+                    <h2 class="title">Humidity</h2>
+                    <div class="humidity">49%</div>
+                </div>
+
+            </div>
+
+            <!-- lux waal code -->
+            <div class="box5" style="margin-top: 30px;">
+                <div class="progress-container ">
+                    <div class="slider-container2" id="slider-container">
+                        <div class="slider2" id="slider"></div>
+                        <div class="indicator2" id="indicator">
+                            <div class="circle2">⚡</div>
+                            <span>LUX</span>
+                            <span id="percentage">50%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function toggleSwitch(type) {
+            alert(type + ' toggled!');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('light-mode');
+            let modeButton = document.querySelector('.toggle-mode');
+            if (document.body.classList.contains('light-mode')) {
+                modeButton.textContent = '🌞';
+            } else {
+                modeButton.textContent = '🌙';
+            }
+        }
+
+
+        // lux wala js
+
+        const sliderContainer = document.getElementById('slider-container');
+        const sliderr = document.getElementById('slider');
+        const percentageText = document.getElementById('percentage');
+
+        sliderContainer.addEventListener('mousedown', (e) => {
+            function moveSlider(event) {
+                let rect = sliderContainer.getBoundingClientRect();
+                let offsetX = event.clientX - rect.left;
+                let percentage = Math.min(Math.max(offsetX / rect.width * 100, 0), 100);
+                sliderr.style.width = percentage + '%';
+                percentageText.textContent = Math.round(percentage) + '%';
+            }
+
+            function stopDragging() {
+                document.removeEventListener('mousemove', moveSlider);
+                document.removeEventListener('mouseup', stopDragging);
+            }
+
+            moveSlider(e);
+            document.addEventListener('mousemove', moveSlider);
+            document.addEventListener('mouseup', stopDragging);
+        });
+
+
+        // calender
+
+        document.getElementById("open-modal").addEventListener("click", function() {
+            document.getElementById("schedule-modal").classList.add("active");
+        });
+
+        document.getElementById("close-modal").addEventListener("click", function() {
+            document.getElementById("schedule-modal").classList.remove("active");
+        });
+
+        document.getElementById("set-schedule").addEventListener("click", function() {
+            let scheduleTime = document.getElementById("schedule-time").value;
+            if (scheduleTime) {
+                document.getElementById("scheduled-time").innerText = "Scheduled for: " + new Date(scheduleTime).toLocaleString();
+                alert("Schedule ho gaya!");
+                document.getElementById("schedule-modal").classList.remove("active");
+            } else {
+                alert("Please select a time.");
+            }
+        });
+    </script>
+    <script src="script.js "></script>
+</body>
+
+</html>
